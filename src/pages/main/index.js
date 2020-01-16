@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-
-import './index.css'
-
 import api from '../../services/api'
+import { Link } from 'react-router-dom'
+import './index.css'
 
 export default class Main extends Component{
   state = {
@@ -53,9 +52,9 @@ export default class Main extends Component{
         <article key={product._id}> 
           <strong>{ product.title}</strong>
           <p>{product.description}</p>
-          <a href="/#">Acess</a> 
+          <Link to = {`/products/${product._id}`}>Acess </Link> 
         </article>
-      ))} 
+      ))}   
       <div className="actions">
         <button disabled = {page === 1} onClick={this.prevPage}>prev</button>
         <button disabled = {page === productInfo.pages}onClick={this.nextPage}>next</button> 
